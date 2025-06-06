@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:bsvc="urn:com.workday/bsvc">
+  <soapenv:Header>
+    <bsvc:Workday_Common_Header>
+      <bsvc:Include_Reference_Descriptors_In_Response>true</bsvc:Include_Reference_Descriptors_In_Response>
+    </bsvc:Workday_Common_Header>
+  </soapenv:Header>
+  <soapenv:Body>
+    <bsvc:Put_Worker_Document_Request bsvc:Add_Only="false">
+      <bsvc:Worker_Document_Data>
+        <bsvc:Filename>{{filename}}</bsvc:Filename>
+        <bsvc:Comment>Uploaded in bulk</bsvc:Comment>
+        <bsvc:File>{{fileContent}}</bsvc:File>
+        <bsvc:Document_Category_Reference>
+          <bsvc:ID bsvc:type="WID">{{categoryWid}}</bsvc:ID>
+        </bsvc:Document_Category_Reference>
+        <bsvc:Worker_Reference>
+          <bsvc:ID bsvc:type="WID">{{workerWid}}</bsvc:ID>
+        </bsvc:Worker_Reference>
+        <bsvc:Content_Type>{{mimeType}}</bsvc:Content_Type>
+      </bsvc:Worker_Document_Data>
+    </bsvc:Put_Worker_Document_Request>
+  </soapenv:Body>
+</soapenv:Envelope>

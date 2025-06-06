@@ -1,0 +1,21 @@
+# OS junk
+.DS_Store
+
+# Dependencies
+/node_modules
+
+# Secrets
+.env
+
+# Build output
+/dist
+
+# Input/Output folders
+/input/**
+!/input/.gitkeep
+/failed/**
+!/failed/.gitkeep
+/processed/**
+!/processed/.gitkeep
+/logs/**
+!/logs/.gitkeep
