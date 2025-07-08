@@ -5,16 +5,16 @@ export interface DocumentCategory {
 
 export const documentCategories: DocumentCategory[] = [
   {
-    name: "Performance",
-    wid: "cb0535d1d7d7100c1c873fd08cda0000"
+    name: "Compensation",
+    wid: "7166a581648910019e415635dd8e0000"
   },
   {
-    name: "Written Warning",
-    wid: "cb0535d1d7d7100c1c87406afd3c0000"
+    name: "Outside Engagement",
+    wid: "cb0535d1d7d7100c1c87419eee330000"
   },
   {
-    name: "Sick Leave Management",
-    wid: "cb0535d1d7d7100c1c87406afd3c0001"
+    name: "Offboarding",
+    wid: "7166a581648910019e415502acf90000"
   },
   {
     name: "Disciplinary Action",
@@ -43,5 +43,17 @@ export const documentCategories: DocumentCategory[] = [
   {
     name: "Hire and Recruitment documents",
     wid: "c1d7f7601fc31001e8eebfaefe830000"
+  },
+  {
+    name: "Other Documents",
+    wid: "69e113544dfe100002fc6609f6eb006d"
+  },
+  {
+    name: "Pension and Insurance",
+    wid: "7166a581648910019e41559c42f60001"
+  },
+  {
+    name: "Termination Agreement",
+    wid: "7166a581648910019e41559c42f60000"
   }
 ];
