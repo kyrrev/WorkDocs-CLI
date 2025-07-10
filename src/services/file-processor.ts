@@ -19,7 +19,10 @@ export class FileProcessor {
   async getFilesToProcess(): Promise<string[]> {
     try {
       const files = await fs.readdir(this.config.inputDir);
-      const allFiles = files.filter(file => !file.startsWith('.'));
+      const allFiles = files.filter(file => 
+        !file.startsWith('.') && 
+        !file.endsWith('.error.txt')
+      );
       
       logger.info(`Found ${allFiles.length} files to process`, { 
         inputDir: this.config.inputDir 
@@ -63,7 +66,7 @@ export class FileProcessor {
           fileContent: '',
           size: 0,
           isValid: false,
-          error: 'Invalid employee ID format. Must be 4-12 digits'
+          error: 'Invalid employee ID format. Must be 3-12 digits'
         };
       }
       
@@ -191,9 +194,9 @@ export class FileProcessor {
    * Validates employee ID format for security and business rules
    */
   private validateEmployeeId(employeeId: string): boolean {
-    // Employee ID should be numeric, between 4-12 digits
-    return /^\d{4,12}$/.test(employeeId) && 
-           employeeId.length >= 4 && 
+    // Employee ID should be numeric, between 3-12 digits
+    return /^\d{3,12}$/.test(employeeId) && 
+           employeeId.length >= 3 && 
            employeeId.length <= 12;
   }
 
@@ -218,7 +221,8 @@ export class FileProcessor {
     }
     
     // Check if filename follows expected pattern: {employeeId}-{description}.{ext}
-    if (!/^\d+-[^-]+\.[a-zA-Z0-9]+$/.test(filename)) {
+    // Allow spaces, hyphens, periods, and Unicode characters in description part
+    if (!/^\d+-.+\.[a-zA-Z0-9]+$/u.test(filename)) {
       return { isValid: false, error: 'Filename must follow pattern: {employeeId}-{description}.{extension}' };
     }
     
