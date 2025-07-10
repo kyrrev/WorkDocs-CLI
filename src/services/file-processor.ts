@@ -63,7 +63,7 @@ export class FileProcessor {
           fileContent: '',
           size: 0,
           isValid: false,
-          error: 'Invalid employee ID format. Must be 4-12 digits'
+          error: 'Invalid employee ID format. Must be 3-12 digits'
         };
       }
       
@@ -191,9 +191,9 @@ export class FileProcessor {
    * Validates employee ID format for security and business rules
    */
   private validateEmployeeId(employeeId: string): boolean {
-    // Employee ID should be numeric, between 4-12 digits
-    return /^\d{4,12}$/.test(employeeId) && 
-           employeeId.length >= 4 && 
+    // Employee ID should be numeric, between 3-12 digits
+    return /^\d{3,12}$/.test(employeeId) && 
+           employeeId.length >= 3 && 
            employeeId.length <= 12;
   }
 
@@ -218,7 +218,7 @@ export class FileProcessor {
     }
     
     // Check if filename follows expected pattern: {employeeId}-{description}.{ext}
-    if (!/^\d+-[^-]+\.[a-zA-Z0-9]+$/.test(filename)) {
+    if (!/^\d+-[^.]+\.[a-zA-Z0-9]+$/.test(filename)) {
       return { isValid: false, error: 'Filename must follow pattern: {employeeId}-{description}.{extension}' };
     }
     
