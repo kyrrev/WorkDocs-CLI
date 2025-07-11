@@ -34,8 +34,8 @@ export class WorkdayApiService {
    * Validates employee ID format for security
    */
   private validateEmployeeId(employeeId: string): boolean {
-    return /^\d{4,12}$/.test(employeeId) && 
-           employeeId.length >= 4 && 
+    return /^\d{3,12}$/.test(employeeId) && 
+           employeeId.length >= 3 && 
            employeeId.length <= 12;
   }
 
@@ -52,7 +52,7 @@ export class WorkdayApiService {
     if (!this.validateEmployeeId(employeeId)) {
       return { 
         isValid: false, 
-        error: 'Invalid employee ID format. Must be 4-12 digits.' 
+        error: 'Invalid employee ID format. Must be 3-12 digits.' 
       };
     }
 

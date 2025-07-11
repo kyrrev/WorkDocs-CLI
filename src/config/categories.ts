@@ -38,7 +38,7 @@ export const documentCategories: DocumentCategory[] = [
   },
   {
     name: "Employment Contract",
-    wid: "cb0535d1d7d7100c1c87440632970000"
+    wid: "2026094a891941ffa864b3dc00c24025"
   },
   {
     name: "Hire and Recruitment documents",
